@@ -1,0 +1,18 @@
+---
+ interface Props{
+    IURL: String, 
+ }
+
+  const { IURL } = Astro.props;
+
+---
+
+
+<section class="text-gray-600 body-font w-11/12 hero rounded-xl " style={{ backgroundImage: `url(${IURL})`,}}>
+    <div class="hero-overlay  bg-clip-content  rounded-xl backdrop-blur-sm"></div>
+    <div
+    class="container hero-content mx-auto flex px-5 py-24 md:flex-row flex-col items-center"
+  >
+    <slot/>
+  </div>
+</section>

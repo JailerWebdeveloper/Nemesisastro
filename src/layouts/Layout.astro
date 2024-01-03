@@ -1,0 +1,45 @@
+---
+import Navbar from '../components/Navbar.astro';
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="cursor-personalizado">
+		<Navbar />
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	 .cursor-personalizado{
+    cursor: url(../../assets/Cursor/AnyConv.com__normal.png), auto;
+  }
+
+  button{
+	cursor: url(../../assets/Cursor/AnyConv.com__alt.png), auto;
+  }
+
+  .altcursor{
+	cursor: url(../../assets/Cursor/AnyConv.com__alt.png), pointer;
+  }
+  .cursor-personalizado:active {
+  cursor: url(../../assets/Cursor/AnyConv.com__link.png), pointer;
+}
+
+.cursor-personalizado:focus {
+  cursor: url('../../assets/Cursor/AnyConv.com__text.png'), text;
+}
+</style>

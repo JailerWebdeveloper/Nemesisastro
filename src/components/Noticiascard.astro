@@ -1,0 +1,35 @@
+---
+import Buttonplay from './shared/Buttonplay.astro';
+interface Props {
+  titulo: string;
+  descripcion: string;
+}
+const { titulo, descripcion } = Astro.props;
+---
+
+<div
+  class=" flex w-80 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md  hover:-translate-y-2 transition-all hover:ring-2"
+>
+  <div
+    class=" mx-4 -mt-6 h-52 overflow-hidden rounded-xl bg-blue-gray-500 bg-clip-border text-white shadow-lg shadow-blue-gray-500/40 bg-gradient-to-r from-blue-500 to-blue-600"
+    style={{
+      backgroundImage: `url(${"https://i.pinimg.com/564x/bb/58/33/bb5833f07760163f3687818d67056701.jpg"})`,
+    }}
+  >
+  </div>
+  <div class="p-6">
+    <h5
+      class="mb-2 block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased"
+    >
+      {titulo}
+    </h5>
+    <p
+      class="block font-sans text-base font-light leading-relaxed text-inherit antialiased"
+    >
+      {descripcion}
+    </p>
+  </div>
+  <div class="p-6 pt-0">
+    <Buttonplay texto="leer mas" />
+  </div>
+</div>
