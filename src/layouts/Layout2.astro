@@ -1,0 +1,57 @@
+---
+interface Props{
+    imageurl:string,
+    title:string,
+    description:string,
+    About:string,
+    subtitle:string
+
+
+}
+
+const {imageurl,title,description,About,subtitle} =Astro.props
+
+import Buttonplay from '../components/shared/Buttonplay.astro';
+---
+
+<section id="Banner brillosombra transition-all">
+    <div class="flex w-full p-10 justify-center items-center">
+      <img
+        src={imageurl}
+        alt="BANNER OSCURO"
+        class="w-full rounded-xl brillosombra transition-all imgentry"
+      />
+    </div>
+    <div class="w-full px-5  flex justify-center items-center">
+      <div
+        class="w-full md:4/5 break-words flex flex-col gap-5 items-center justify-center text-justify md:text-center"
+      >
+      <p class="font-bold text-xl md:text-4xl uppercase">{About}</p>
+        <p class="font-semibold text-lg md:text-xl leading-relaxed w-4/5">{subtitle}</p>
+        <span class="inline-block h-1 w-10 rounded bg-indigo-500 mb-8"></span>
+        <p class="font-bold text-xl md:text-4xl uppercase">{title}</p>
+        <p class="leading-relaxed font-semibold text-xl">
+            {description}  
+        </p>
+        <ul
+          class="flex flex-col gap-5 w-3/5 leading-relaxed font-semibold text-lg text-justify list-disc"
+        >
+            <slot name="list">
+        </ul>
+        <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6"
+        ></span>
+        <div class="flex justify-center items-center">
+          <Buttonplay texto="Habla con nosotros" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .brillosombra:hover {
+      -webkit-box-shadow: 0px 0px 40px 2px rgba(199, 0, 106, 1);
+      -moz-box-shadow: 0px 0px 40px 2px rgba(255, 84, 255, 1);
+      box-shadow: 0px 0px 40px 2px rgba(255, 84, 255, 1);
+    }
+  </style>
+  

@@ -9,6 +9,7 @@ import PS5LOGO from "../../public/PS5.png";
 import XBOXSERIESXLOGO from "../../public/XBOX-SERIES-X-.png";
 import Bannertwitch from "../../public/BannerTwitch.png";
 import Noticiascard from "../components/Noticiascard.astro";
+import Layout2 from "../layouts/Layout2.astro";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -66,64 +67,42 @@ import Noticiascard from "../components/Noticiascard.astro";
       </div>
     </HerobgimageLayout>
 
-    <section id="Banner ">
-      <div class="flex w-full p-10 justify-center items-center">
-        <Image
-          src={Bannertwitch}
-          alt="BANNER OSCURO"
-          class="w-full rounded-xl brillosombra transition-all imgentry"
-        />
-      </div>
-      <div class="w-full px-5 py-24 flex justify-center items-center">
-        <div
-          class="w-full md:4/5 break-words flex flex-col gap-5 items-center justify-center text-justify md:text-center"
-        >
-          <p class="font-bold text-xl md:text-4xl uppercase">¿QUÉ HACEMOS?</p>
-          <p class="leading-relaxed font-semibold text-xl">
-            Tenemos todo lo necesario para ambientar de manera diferente los
-            eventos de tu empresa.<br />
-             Las pausas activas serán más llamativas y relajantes.
-          </p>
-          <ul
-            class="flex flex-col gap-5 w-3/5 leading-relaxed font-semibold text-lg text-justify list-disc"
-          >
-            <li>
-              Juegos de tendencia: Tenemos una amplia selección de juegos
-              populares y de tendencia que se adaptan a diferentes gustos y
-              edades, asegurando que todos encuentren algo que les apasione
-            </li>
-            <li>
-              Configuración y soporte técnico: Nuestro equipo se encarga de la
-              instalación y configuración de los equipos, así como de brindar
-              soporte técnico durante el evento para garantizar un
-              funcionamiento sin problemas.
-            </li>
-            <li>
-              Experiencia inolvidable: Nuestra renta empresarial de equipos de
-              videojuegos ofrece una experiencia inmersiva y emocionante que
-              fomenta el compañerismo, la competencia amistosa y la interacción
-              entre los empleados.
-            </li>
-            <li>
-              Flexibilidad: Adaptamos nuestros servicios a tus necesidades
-              específicas, ya sea para un evento de medio día o para una renta a
-              largo plazo.
-            </li>
-          </ul>
-          <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6"
-          ></span>
-          <div class="flex justify-center items-center">
-            <Buttonplay texto="Habla con nosotros" />
-          </div>
-        </div>
-      </div>
-    </section>
+    <Layout2
+      imageurl="../../public/BannerTwitch.png"
+      title="¿QUE HACEMOS?"
+      subtitle="Playstation 4 | Playstation 5 | XBOX Series | TV 43” | Bases moviles para TV"
+      description="Tenemos toFdo lo necesario para ambientar de manera diferente los eventos de tu empresa"
+      About="Renta Empresarial"
+    >
+      <li slot="list">
+        Juegos de tendencia: Tenemos una amplia selección de juegos populares y
+        de tendencia que se adaptan a diferentes gustos y edades, asegurando que
+        todos encuentren algo que les apasione
+      </li>
+      <li slot="list">
+        Configuración y soporte técnico: Nuestro equipo se encarga de la
+        instalación y configuración de los equipos, así como de brindar soporte
+        técnico durante el evento para garantizar un funcionamiento sin
+        problemas.
+      </li>
+      <li slot="list">
+        Experiencia inolvidable: Nuestra renta empresarial de equipos de
+        videojuegos ofrece una experiencia inmersiva y emocionante que fomenta
+        el compañerismo, la competencia amistosa y la interacción entre los
+        empleados.
+      </li>
+      <li slot="list">
+        Flexibilidad: Adaptamos nuestros servicios a tus necesidades
+        específicas, ya sea para un evento de medio día o para una renta a largo
+        plazo.
+      </li>
+    </Layout2>
 
     <section>
       <div class="w-full p-10 flex flex-col items-center justify-center">
         <h1 class="text-white font-bold text-6xl">Noticias</h1>
         <div
-          class="w-full p-20 grid grid-cols-3 gap-10 grid-rows-auto place-content-center"
+          class="w-full p-20 grid grid-cols-1 place-items-center md:grid-cols-3 gap-10 grid-rows-auto place-content-center"
         >
           <Noticiascard
             titulo="Gaming femenino"
@@ -140,58 +119,46 @@ import Noticiascard from "../components/Noticiascard.astro";
         </div>
       </div>
     </section>
-    <section id="Banner ">
-      <div class="flex w-full p-10 justify-center items-center">
-        <Image
-          src={Bannertwitch}
-          alt="BANNER OSCURO"
-          class="w-full rounded-xl brillosombra transition-all imgentry"
-        />
-      </div>
-      <div class="w-full px-5 py-24 flex justify-center items-center">
-        <div
-          class="w-full md:4/5 break-words flex flex-col gap-5 items-center justify-center text-justify md:text-center"
-        >
-          <p class="font-bold text-xl md:text-4xl uppercase">¿QUÉ HACEMOS?</p>
-          <p class="leading-relaxed font-semibold text-xl">
-            Tenemos todo lo necesario para ambientar de manera diferente los
-            eventos de tu empresa.<br />
-             Las pausas activas serán más llamativas y relajantes.
-          </p>
-          <ul
-            class="flex flex-col gap-5 w-3/5 leading-relaxed font-semibold text-lg text-justify list-disc"
-          >
-            <li>
-              Juegos de tendencia: Tenemos una amplia selección de juegos
-              populares y de tendencia que se adaptan a diferentes gustos y
-              edades, asegurando que todos encuentren algo que les apasione
-            </li>
-            <li>
-              Configuración y soporte técnico: Nuestro equipo se encarga de la
-              instalación y configuración de los equipos, así como de brindar
-              soporte técnico durante el evento para garantizar un
-              funcionamiento sin problemas.
-            </li>
-            <li>
-              Experiencia inolvidable: Nuestra renta empresarial de equipos de
-              videojuegos ofrece una experiencia inmersiva y emocionante que
-              fomenta el compañerismo, la competencia amistosa y la interacción
-              entre los empleados.
-            </li>
-            <li>
-              Flexibilidad: Adaptamos nuestros servicios a tus necesidades
-              específicas, ya sea para un evento de medio día o para una renta a
-              largo plazo.
-            </li>
-          </ul>
-          <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6"
-          ></span>
-          <div class="flex justify-center items-center">
-            <Buttonplay texto="Habla con nosotros" />
-          </div>
-        </div>
-      </div>
-    </section>
+
+    <Layout2
+      imageurl="../../public/Purple Blue Colorful Gaming LinkedIn Banner.png"
+      title="¿QUE HACEMOS?"
+      subtitle="Playstation 4 | Playstation 5 | XBOX Series | TV 43” | Bases moviles para TV"
+      description=""
+      About="Eventos Privados"
+    >
+      <li slot="list">
+        Llevamos toda la producción que incluye: Pendón temático de fondo con la
+        imágen del videojuego de tu interés, iluminación tipo dj, televisores de
+        43" con bases móviles, consola a elegir; xbox one, ps4, ps5.
+      </li>
+      <li slot="list">
+        Servicio desde 3 horas efectivas personal capacitado que sanitiza el
+        equipo constantemente, gestiona equipos de juego y apoya a los invitados
+        para que no pierdan un solo minuto de diversión
+      </li>
+    </Layout2>
+
+    <Layout2
+      imageurl="../../public/Purple Blue Colorful Gaming LinkedIn Banner(1).png"
+      title="¿Cómo participar?"
+      subtitle="Nuestros eventos en línea son más que simples torneos. Son encuentros que te desafían, te hacen superar tus límites y te permiten demostrar tus habilidades a nivel competitivo. Únete a nuestros torneos para enfrentarte a otros jugadores talentosos, conocer nuevos amigos y compartir la pasión por los videojuegos."
+      description=""
+      About="Eventos Online"
+    >
+      <li slot="list">
+        Explora nuestros próximos eventos: Visita nuestra página de eventos para conocer los próximos torneos y las fechas de inscripción.
+      </li>
+      <li slot="list">
+        Regístrate: Apúntate a los eventos que te interesen y asegura tu lugar en la competición.
+      </li>
+      <li slot="list">
+        ¡Juega y diviértete!: Una vez que el evento comience, únete a la partida, compite con determinación y disfruta del juego al máximo.
+      </li>
+      <li slot="list">
+        ¡Celebra tu éxito!: Si te destacas y alcanzas la gloria, recibirás tu merecido reconocimiento y, posiblemente, emocionantes premios.
+      </li>
+    </Layout2>
   </main>
 </Layout>
 
