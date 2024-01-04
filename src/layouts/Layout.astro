@@ -17,13 +17,14 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="cursor-personalizado">
+	<body class="cursor-personalizado overflow-x-hidden p-5">
 		<Navbar />
 		<slot />
 	</body>
 </html>
 
 <style is:global>
+
 	 .cursor-personalizado{
     cursor: url(../../assets/Cursor/AnyConv.com__normal.png), auto;
   }

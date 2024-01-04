@@ -2,11 +2,20 @@
 import Buttonplay from "./shared/Buttonplay.astro";
 
 ---
-
-<header class="text-gray-600 body-font">
-    <div class="container mx-auto flex flex-wrap p-5 flex-col justify-between md:flex-row items-center">
-      <a class="flex items-center w-52 mb-4 md:mb-0">
-       <img src="../../public/LOGO-BLANCO-.PNG" class="object-cover" alt="hero"/>
-      </a>
+<header class="text-white body-font transition-all">
+  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
+      <a href="/eventos" class="mr-5 hover:text-blue-900">Eventos</a>
+      <a href="/servicios" class="mr-5 hover:text-blue-900">Servicios</a>
+      <a href="QuienesSomos" class="mr-5 hover:text-blue-900">Quienes somos</a>
+    </nav>
+    <a href="/" class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
+      <img src="../../public/LOGO-BLANCO-.png" alt="logo" class="h-20">
+    </a>
+    <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
+      <button class="btn btn-outline btn-primary">
+          Contactanos
+      </button>
     </div>
-  </header>
+  </div>
+</header>

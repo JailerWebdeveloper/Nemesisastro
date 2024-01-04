@@ -1,0 +1,18 @@
+---
+import Buttonplay from './shared/Buttonplay.astro';
+interface Props{
+    title: string;
+    description: string;
+}
+const {title, description} = Astro.props;
+---
+
+<div class=" mx-auto flex-shrink bg-gray-700 md:w-2/5 rounded-xl hover:bg-gray-900 hover:scale-110 duration-700 p-5 break-words ">
+        <img src="../../public/LOGO-BLANCO-.png" alt="logo" class="h-24 mx-auto" />
+    <h4 class="py-2 text-white font-bold text-center text-2xl">{title}</h4>
+    <p class="text-sm leading-7 text-slate-300 space-y-4 text-justify">{description}</p>
+    <div class="pt-5 pb-2 flex justify-center">
+      <Buttonplay texto='Conoce mas' />
+    </div>
+  </div>
+  

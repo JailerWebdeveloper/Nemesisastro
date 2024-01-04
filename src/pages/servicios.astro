@@ -1,0 +1,28 @@
+---
+import Cardservicios from "../components/Cardservicios.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Servicios">
+  <section
+    class="w-full h-full flex flex-col p-10 gap-5 items-center justify-center"
+  >
+    <p
+      class="text-white font-extrabold leading-relaxed text-center break-words text-2xl antialiased md:text-6xl mt-10"
+    >
+      SERVICIOS PROFESIONALES
+    </p>
+    <span class="inline-block h-1 w-2/5 rounded bg-indigo-500 mb-8"></span>
+    <div
+      class="flex flex-col md:flex-row gap-5 items-center  justify-center w-full h-full"
+    >
+      <Cardservicios
+        title="Soporte Técnico"
+        description="Experimenta un soporte técnico excepcional diseñado para resolver tus desafíos informáticos con eficiencia. Nuestro servicio garantiza soluciones rápidas y efectivas, brindando asistencia experta para mantener tus sistemas en óptimo rendimiento. Confía en nosotros para superar cualquier obstáculo técnico y optimizar tu experiencia digital."
+      />
+      <Cardservicios title="Desarrollo de Páginas web" description="Descubre la excelencia en el desarrollo de páginas web con nuestro servicio especializado. Creamos experiencias digitales impactantes y funcionales, adaptadas a tus necesidades. Confía en nuestro equipo para materializar tu visión en la web con soluciones de vanguardia y diseño innovador." />
+      <Cardservicios title="Desarrollo de Software a la Medida" description="Transforma tu visión en realidad con nuestro servicio de desarrollo de software a la medida. Diseñamos soluciones personalizadas que se ajustan a tus necesidades específicas. Con experiencia en diversas plataformas, ofrecemos un enfoque integral para impulsar el éxito de tu proyecto." />
+      <Cardservicios title="Diseño Gráfico y Publicidad" description="Destaca entre la multitud con nuestro servicio de Diseño Gráfico y Publicidad. Desde logotipos impactantes hasta campañas publicitarias creativas, damos vida a tu marca. Con un enfoque único y creativo, te ayudamos a comunicar tu mensaje de manera efectiva y a destacar en el competitivo mundo del diseño y la publicidad." />
+    </div>
+  </section>
+</Layout>
