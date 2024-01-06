@@ -1,21 +1,150 @@
 ---
 import Buttonplay from "./shared/Buttonplay.astro";
-
+import { Grip,Gamepad,CalendarDays,Newspaper,Sparkles} from "lucide-astro";
 ---
-<header class="text-white body-font transition-all">
-  <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-    <nav class="flex lg:w-2/5 flex-wrap items-center text-base md:ml-auto">
-      <a href="/eventos" class="mr-5 hover:text-blue-900">Eventos</a>
-      <a href="/servicios" class="mr-5 hover:text-blue-900">Servicios</a>
-      <a href="QuienesSomos" class="mr-5 hover:text-blue-900">Quienes somos</a>
-    </nav>
-    <a href="/" class="flex order-first lg:order-none lg:w-1/5 title-font font-medium items-center text-gray-900 lg:items-center lg:justify-center mb-4 md:mb-0">
-      <img src="../../public/LOGO-BLANCO-.png" alt="logo" class="h-20">
-    </a>
-    <div class="lg:w-2/5 inline-flex lg:justify-end ml-5 lg:ml-0">
-      <button class="btn btn-outline btn-primary">
-          Contactanos
-      </button>
+
+<div class="z-40 w-full p-4 my-5 flex justify-between items-center" transition:persist>
+  <div
+    class="btn btn-ghost w-52 md:ml-20 h-full flex justify-center items-center"
+  >
+    <a href="/"
+      ><img
+        src="../../public/LOGO-BLANCO-.png"
+        alt="Nemesis logo"
+        class="w-full h-full object-contain"
+      /></a
+    >
+  </div>
+
+  <div class="drawer drawer-end w-40 flex justify-center items-center">
+    <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content">
+      <!-- Page content here -->
+      <div class="hover:-translate-y-2 h-10 w-10 group transition-all">
+        <label
+          for="my-drawer-4"
+          class="drawer-button group-hover:text-purple-600  h-full w-ful"
+        >
+          <Grip class="w-full h-full" />
+        </label>
+      </div>
+    </div>
+    <div class="drawer-side overflow-hidden z-40">
+      <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"
+      ></label>
+      <ul class="menu h-full p-4 w-80 min-h-full  text-white ">
+        <!-- Sidebar content here -->
+        <div class=" rounded-lg border border-purple-600 h-full relative ">
+          <canvas class="z-0 rounded-lg absolute"></canvas>
+          <ul class="flex flex-col gap-4 mt-10  text-lg font-semibold">
+          <li class="w-4/5 self-center"><a href="/"><img src="../../public/LOGO-BLANCO-.png" class="w-full h-full"></a></li>
+          <li class="group"><a href="/QuienesSomos"><Newspaper class="group-hover:text-purple-600"/>Acerca de Nemesis</a></li>
+          <li class="group"><a href="/eventos"><CalendarDays class="group-hover:text-purple-600"/>Eventos</a></li>
+          <li class="group"><a href="/servicios"><Sparkles class="group-hover:text-purple-600"/>Servicios</a></li>
+          <li class="group"><a href="/Rentas "><Gamepad class="group-hover:text-purple-600"/>Renta de consolas</a></li>
+        </ul>
+          </div>
+
+      </ul>
     </div>
   </div>
-</header>
+</div>
+
+<style>
+  canvas {
+  background: #000;
+}
+</style>
+
+<script is:inline>
+  let canvas = document.querySelector('canvas');
+let c = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+});
+
+let HorizontalArray = [];
+function Horizontal(y) {
+  this.y = y;
+  this.dy = 0.5;
+  this.opacity = 0;
+
+  this.draw = () => {
+    c.beginPath();
+    c.lineWidth = 3;
+    c.strokeStyle = `rgba(255, 0, 255, ${this.opacity})`;
+    c.moveTo(0, this.y);
+    c.lineTo(canvas.width, this.y);
+    c.stroke();
+  }
+
+  this.update = () => {
+    if(this.y >= canvas.height) {
+      HorizontalArray.splice(HorizontalArray.indexOf(this), 1);
+    }
+
+    this.opacity += 0.003;
+
+    this.dy += 0.05;
+    this.y += this.dy;
+    this.draw();
+  }
+}
+
+let grad = c.createLinearGradient(0,canvas.height,0,0);
+grad.addColorStop("0", "rgba(255, 0, 255, 0.5)");
+grad.addColorStop("0.55", "rgba(255, 0, 255, 0)");
+grad.addColorStop("1.0", "rgba(255, 0, 255, 0)");
+let VerticalArray = [];
+function Vertical(x) {
+  this.x = x;
+
+  this.draw = () => {
+    c.beginPath();
+    c.lineWidth = 3;
+    c.strokeStyle = grad;
+    c.moveTo(canvas.width / 2, 200);
+    c.lineTo(this.x, canvas.height);
+    c.stroke();
+  }
+
+  this.update = () => {
+    this.draw();
+  }
+}
+
+let interval = (canvas.width / 10);
+let cross = 0 - interval * 8;
+for(let i = 0; i < 27; i++) {
+  VerticalArray.push(new Vertical(cross));
+  cross += interval;
+}
+
+setInterval(() => {
+  HorizontalArray.push(new Horizontal(canvas.height / 2));
+}, 300);
+
+function animate() {
+  requestAnimationFrame(animate);
+  c.clearRect(0, 0, canvas.width, canvas.height);
+
+  for(let i = 0; i < HorizontalArray.length; i++) {
+    HorizontalArray[i].update();
+  }
+  for(let i = 0; i < VerticalArray.length; i++) {
+    VerticalArray[i].update();
+  }
+}
+
+function estilos() {
+  canvas.style.width = '100%';
+  canvas.style.height = '100%';
+}
+animate();
+estilos();
+</script>
